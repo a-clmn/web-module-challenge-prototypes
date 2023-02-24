@@ -21,12 +21,6 @@ this.age = age
 this.stomach = []
 }
 
-const Neo = {
-  name: "Neo",
-  age: 20,
-}
-console.log(Neo)
-
 Person.prototype.eat = function(someFood) {
   return this.stomach.push(someFood);
 }
@@ -63,10 +57,10 @@ this.odometer = 0
 }
 
  Car.prototype.fill = function(gallons) {
-    return tank + gallons
+    return gallons + this.tank
  }
 
- console.log()
+ console.log(Car.prototype.fill(10))
 
 /*
   TASK 3
@@ -76,15 +70,25 @@ this.odometer = 0
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  this.name = name
+  this.age = age
+  this.favoriteToy = favoriteToy
 }
 
+Baby.prototype.eat = Person.prototype.eat
+Baby.prototype.poop = Person.prototype.poop
+
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`
+}
+
+console.log(Baby.prototype.play)
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
+  1.
   2. 
   3. 
   4. 
