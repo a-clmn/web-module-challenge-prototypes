@@ -22,6 +22,7 @@ this.stomach = []
 }
 
 Person.prototype.eat = function(someFood) {
+  if (this.stomach.length < 10);
   return this.stomach.push(someFood);
 }
 
@@ -57,7 +58,7 @@ this.odometer = 0
 }
 
  Car.prototype.fill = function(gallons) {
-    return gallons + this.tank
+    this.tank = this.tank + gallons
  }
 
  console.log(Car.prototype.fill(10))
@@ -71,27 +72,23 @@ this.odometer = 0
 */
 
 function Baby(name, age, favoriteToy) {
-  this.name = name
-  this.age = age
+  Person.call(this, name, age)
   this.favoriteToy = favoriteToy
 }
 
-Baby.prototype.eat = Person.prototype.eat
-Baby.prototype.poop = Person.prototype.poop
+Baby.prototype = Object.create(Person.prototype);
 
 Baby.prototype.play = function() {
   return `Playing with ${this.favoriteToy}`
 }
 
-console.log(Baby.prototype.play)
-
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1.
-  2. 
-  3. 
-  4. 
+  1. Global Binding/Window Binding - if all else fails, returns information in the window of a browser.
+  2. Implicit binding - Uses dot syntax to imply a connection.
+  3. Explicit binding - Uses functions to make a connection.
+  4. New binding - Uses the "new" keyword to create a new object based on another one.
 */
 
 ///////// END OF CHALLENGE /////////
