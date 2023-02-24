@@ -15,10 +15,26 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(attributes) {
+this.name = attributes.name;
+this.age = attributes.age;
+this.stomach = []
+};
 
+
+const Neo = new Person({
+  name: "Neo",
+  age: "20",
+})
+
+console.log(Neo)
+
+Person.prototype.eat = function(someFood) {
+  while (this.stomach.length < 10);
+  return this.stomach.push(someFood);
 }
 
+console.log(Neo.eat)
 
 /*
   TASK 2
